@@ -21,7 +21,7 @@ const App: React.FC = () => {
       <Header lang={lang} toggleLanguage={toggleLanguage} t={t} />
       
       <main className="flex-grow">
-        {/* Impact Visual Hero Section */}
+        {/* Impact Visual Hero Section  */}
         <section id="hero">
           <Hero t={t} lang={lang} />
         </section>
