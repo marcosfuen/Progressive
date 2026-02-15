@@ -24,7 +24,7 @@ const Footer: React.FC<FooterProps> = ({ t }) => {
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   {/* Solid Chevron Right - Tip of the arrow */}
-                <path d="M 58 14 L 67 14 L 89 46 L 72 74 L 62 74 L 80 46 Z" />
+                <path d="M 58 14 L 71 14 L 92 46 L 76 74 L 62 74 L 80 46 Z" />
                 
                 {/* Bar 1 (Top) - Independent parallelogram */}
                 <path d="M 10 24 H 56 L 63 34 H 14 Z" />
