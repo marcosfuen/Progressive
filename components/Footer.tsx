@@ -24,17 +24,17 @@ const Footer: React.FC<FooterProps> = ({ t }) => {
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   {/* Solid Chevron Right - Tip of the arrow */}
-                <path d="M 62 18 L 77 18 L 96 49 L 78 82 L 62 82 L 81 51 Z" />
+                <path d="M 58 14 L 67 14 L 89 46 L 72 74 L 62 74 L 80 46 Z" />
                 
                 {/* Bar 1 (Top) - Independent parallelogram */}
-                <path d="M10 24 H42 L48 34 H16 Z" />
+                <path d="M 10 24 H 56 L 63 34 H 14 Z" />
                 
                 {/* Bar 2 (Middle) - Horizontal + 45° Diagonal Tail. Same thickness as others. */}
                 {/* Mathematical offset for 45 deg thickness consistency */}
-                <path d="M 54 65 H 49 H 45 L 55 47 H 20 L 15 38 H 54 L 63 47 Z" />
+                <path d="M 59 64 H 59 H 47 L 58 46 H 19 L 16 38 H 64 L 70 46 Z" />
                 
                 {/* Bar 3 (Bottom) - Ends BEFORE the tail to maintain requested gap */}
-                <path d="M 24 56 H 40 L 37 65 H 19 L 24 56 Z" />
+                <path d="M 33 51 H 50 L 42 64 H 14 L 19 51 Z" />
                 </svg>
               </div>
               <div className="flex flex-col text-center md:text-left">
