@@ -8,7 +8,7 @@ import ApplicationForm from './components/ApplicationForm';
 import Footer from './components/Footer';
 
 const App: React.FC = () => {
-  const [lang, setLang] = useState<Language>('es'); 
+  const [lang, setLang] = useState<Language>('en'); 
   
   const toggleLanguage = () => {
     setLang(prev => (prev === 'en' ? 'es' : 'en'));
