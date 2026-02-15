@@ -16,7 +16,6 @@ const Header: React.FC<HeaderProps> = ({ lang, toggleLanguage, t }) => {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      // Determine if background should be shown (isScrolled)
       setIsScrolled(currentScrollY > 50);
     };
 
@@ -37,40 +36,43 @@ const Header: React.FC<HeaderProps> = ({ lang, toggleLanguage, t }) => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
-          {/* Logo Section */}
-          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-            <div className={`${isScrolled ? 'text-blue-950' : 'text-white'} transition-colors duration-300`}>
+          {/* Logo Section - Precision Geometry */}
+          <div className="flex items-center gap-3 sm:gap-4 shrink-0 group cursor-pointer">
+            <div className={`${isScrolled ? 'text-blue-900' : 'text-white'} transition-colors duration-300`}>
               <svg 
                 viewBox="0 0 100 100" 
-                className="w-8 h-8 sm:w-11 sm:h-11" 
-                fill="none" 
+                className="w-10 h-10 sm:w-16 sm:h-16" 
+                fill="currentColor" 
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <path 
-                  d="M15 25C15 16.7157 21.7157 10 30 10H85L70 90H15V25Z" 
-                  fill="currentColor" 
-                />
-                <path 
-                  d="M35 30H65C70 30 74 34 74 39V45C74 50 70 54 65 54H45V75" 
-                  stroke={isScrolled ? "white" : "#1e3a8a"} 
-                  strokeWidth="8" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                />
+                {/* Solid Chevron Right - Tip of the arrow */}
+                <path d="M 62 18 L 77 18 L 96 49 L 78 82 L 62 82 L 81 51 Z" />
+                
+                {/* Bar 1 (Top) - Independent parallelogram */}
+                <path d="M10 24 H42 L48 34 H16 Z" />
+                
+                {/* Bar 2 (Middle) - Horizontal + 45° Diagonal Tail. Same thickness as others. */}
+                {/* Mathematical offset for 45 deg thickness consistency */}
+                <path d="M 54 65 H 49 H 45 L 55 47 H 20 L 15 38 H 54 L 63 47 Z" />
+                
+                {/* Bar 3 (Bottom) - Ends BEFORE the tail to maintain requested gap */}
+                <path d="M 24 56 H 40 L 37 65 H 19 L 24 56 Z" />
               </svg>
             </div>
             <div className="flex flex-col">
-              <span className={`font-black text-xs sm:text-xl lg:text-2xl tracking-tighter leading-none uppercase transition-colors duration-300 ${isScrolled ? 'text-blue-950' : 'text-white'}`}>
+              <span className={`font-black text-sm sm:text-xl lg:text-2xl tracking-tighter leading-none uppercase transition-colors duration-300 ${isScrolled ? 'text-slate-900' : 'text-white'}`}>
                 PROGRESSIVE
               </span>
-              <span className={`text-[6px] sm:text-[8px] lg:text-[9px] font-black uppercase tracking-[0.1em] sm:tracking-[0.15em] mt-0.5 sm:mt-1 transition-colors duration-300 ${isScrolled ? 'text-blue-600' : 'text-blue-300'}`}>
-                Freight Logistics LLC
+              <span className={`text-[8px] sm:text-[11px] lg:text-[12px] font-black uppercase tracking-tighter leading-none mt-0.5 transition-colors duration-300 ${isScrolled ? 'text-slate-800' : 'text-white'}`}>
+                FREIGHT
+              </span>
+              <span className={`text-[6px] sm:text-[8px] lg:text-[9px] font-black uppercase tracking-[0.3em] mt-0.5 transition-colors duration-300 ${isScrolled ? 'text-blue-600' : 'text-blue-300/80'}`}>
+                LOGISTICS LLC
               </span>
             </div>
           </div>
           
           <nav className="flex items-center gap-2 sm:gap-4">
-            {/* Desktop Links */}
             <div className="hidden md:flex items-center gap-6 mr-4">
               <a 
                 href="#benefits" 
@@ -86,7 +88,6 @@ const Header: React.FC<HeaderProps> = ({ lang, toggleLanguage, t }) => {
               </a>
             </div>
 
-            {/* Language Toggle */}
             <button 
               onClick={toggleLanguage}
               className={`flex items-center justify-center h-9 px-3 sm:h-10 sm:px-4 border rounded-lg text-[10px] sm:text-xs font-bold transition-all ${
@@ -98,7 +99,6 @@ const Header: React.FC<HeaderProps> = ({ lang, toggleLanguage, t }) => {
               {lang === 'en' ? 'ES' : 'EN'}
             </button>
 
-            {/* WhatsApp Icon */}
             <a 
               href={whatsappUrl}
               target="_blank"
@@ -106,7 +106,7 @@ const Header: React.FC<HeaderProps> = ({ lang, toggleLanguage, t }) => {
               className={`flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 border rounded-lg transition-all ${
                 isScrolled
                   ? 'bg-[#25D366]/10 text-[#25D366] border-[#25D366]/20 hover:bg-[#25D366] hover:text-white'
-                  : 'bg-[#25D366] text-white border-[#25D366]/50 hover:scale-110'
+                  : 'bg-[#25D366] text-white border-[#25D366]/50 hover:scale-110 shadow-lg'
               }`}
             >
               <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
@@ -114,7 +114,6 @@ const Header: React.FC<HeaderProps> = ({ lang, toggleLanguage, t }) => {
               </svg>
             </a>
 
-            {/* Hamburger Button */}
             <button 
               onClick={toggleMenu}
               className={`md:hidden flex items-center justify-center w-9 h-9 rounded-lg border transition-all ${
@@ -138,22 +137,13 @@ const Header: React.FC<HeaderProps> = ({ lang, toggleLanguage, t }) => {
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
       {isMenuOpen && (
         <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-2xl animate-in slide-in-from-top-2 duration-300">
           <div className="flex flex-col p-6 space-y-4">
-            <a 
-              href="#benefits" 
-              onClick={closeMenu}
-              className="text-lg font-black uppercase tracking-tighter text-slate-800 pb-4 active:text-blue-600"
-            >
+            <a href="#benefits" onClick={closeMenu} className="text-lg font-black uppercase tracking-tighter text-slate-800 pb-4 active:text-blue-600">
               {t.navBenefits}
             </a>
-            <a 
-              href="#apply" 
-              onClick={closeMenu}
-              className="text-lg font-black uppercase tracking-tighter text-slate-800 pb-4 active:text-blue-600"
-            >
+            <a href="#apply" onClick={closeMenu} className="text-lg font-black uppercase tracking-tighter text-slate-800 pb-4 active:text-blue-600">
               {lang === 'en' ? 'Application' : 'Solicitud'}
             </a>
           </div>
